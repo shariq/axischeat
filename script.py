@@ -36,15 +36,19 @@ def makeFunct(coords):
 if __name__ == '__main__':
   while True:
     os.system('clear')
-    print 'Use this JS:'
+    print 'Type this JS into your console:'
     print "document.onmousemove = function(e){console.log(e.pageX.toString() + ',' + e.pageY.toString())}"
     print ''
+    print 'Move your cursor to top left, and type in coords from console.'
     left_x, top_y = map(float, str(raw_input('left,top: ')).split(','))
+    print 'Move your cursor to bottom right, and type in coords.'
     right_x, bottom_y = map(float, str(raw_input('right,bottom: ')).split(','))
     frame = {'left_x':left_x, 'right_x':right_x, 'top_y':top_y, 'bottom_y':bottom_y}
+    print 'Move your cursor over player, and type in coords.'
     psx, psy = map(float, str(raw_input('px,py: ')).split(','))
     pax,pay = screenToAxis(psx, psy, frame)
     coords = [(pax,pay)]
+    print 'For each point you want the function to go through, type its coords.'
     print '(x to end)'
     s = str(raw_input('x,y: '))
     while s!='x':
@@ -56,7 +60,9 @@ if __name__ == '__main__':
       ax,ay = screenToAxis(sx, sy, frame)
       coords.append([ax,ay])
       s = str(raw_input('x,y: '))
-    print '\n\n\n\n'
+    print ''
+    os.system('clear')
+    print '\n\n\n'
     print makeFunct(coords)
     print '\n'
     str(raw_input('Press enter to continue...'))
