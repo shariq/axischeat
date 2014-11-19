@@ -56,6 +56,7 @@ if __name__ == '__main__':
         sx,sy = map(float, s.split(','))
       except:
         print 'Could not parse that input.'
+        s = str(raw_input('x,y: '))
         continue
       ax,ay = screenToAxis(sx, sy, frame)
       coords.append([ax,ay])
